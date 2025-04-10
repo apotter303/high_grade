@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import React from 'react'
 
 import { RootLayout } from '@/components/RootLayout'
 
@@ -6,8 +7,8 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Studio',
-    default: 'Studio - Award winning developer studio based in Denmark',
+    template: '%s - High Grade',
+    default: 'High Grade - Georgia\'s Trusted Source for Premium Cannabis',
   },
 }
 

@@ -9,6 +9,7 @@ import {
   useState,
 } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
@@ -262,6 +263,19 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           layout
           className="relative isolate flex w-full flex-col pt-9"
         >
+          {/* Hero background image for home page only */}
+          {usePathname() === '/' && (
+            <div className="absolute inset-x-0 top-0 -z-20 h-[800px] overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/90 via-emerald-950/60 to-transparent z-10"></div>
+              <img 
+                src="/images/BotSciFarm_HighRes_37.JPG"
+                alt="Premium cannabis plants" 
+                className="w-full h-full object-cover brightness-75"
+              />
+            </div>
+          )}
+          
+          {/* Interactive grid pattern - keep this for the hover effect */}
           <GridPattern
             className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-neutral-50 stroke-neutral-950/5 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
             yOffset={-96}

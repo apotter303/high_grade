@@ -20,6 +20,7 @@ import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
+import { Button } from '@/components/Button'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -38,7 +39,7 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            We’ve worked with hundreds of amazing people
+            We've worked with hundreds of amazing people
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
@@ -73,8 +74,8 @@ function CaseStudies({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We believe technology is the answer to the world’s greatest
-          challenges. It’s also the cause, so we find ourselves in bit of a
+          We believe technology is the answer to the world's greatest
+          challenges. It's also the cause, so we find ourselves in bit of a
           catch 22 situation.
         </p>
       </SectionIntro>
@@ -157,12 +158,12 @@ function Services() {
             </ListItem>
             <ListItem title="E-commerce">
               We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
+              mainly means adding your logo to the Shopify store template we've
               used for the past six years.
             </ListItem>
             <ListItem title="Custom content management">
               At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
+              customised CMS. That's why we run all of our client projects out
               of a single, enormous Joomla instance.
             </ListItem>
           </List>
@@ -174,7 +175,7 @@ function Services() {
 
 export const metadata: Metadata = {
   description:
-    'We are a development studio working at the intersection of design and technology.',
+    'High Grade - Georgia\'s trusted source for premium THC and hemp products, offering quality cannabis experiences.',
 }
 
 export default async function Home() {
@@ -184,14 +185,22 @@ export default async function Home() {
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-neutral-950 sm:text-7xl">
-            Award-winning development studio based in Denmark.
+          <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-white sm:text-7xl drop-shadow-xl">
+            Georgia's Trusted Source for Premium Cannabis.
           </h1>
-          <p className="mt-6 text-xl text-neutral-600">
-            We are a development studio working at the intersection of design
-            and technology. It’s a really busy intersection though — a lot of
-            our staff have been involved in hit and runs.
+          <p className="mt-6 text-xl text-white/90 drop-shadow-lg">
+            At High Grade, we provide exceptional THC and hemp products for both recreational 
+            enjoyment and wellness benefits. Quality, purity, and customer satisfaction 
+            are at the heart of everything we do.
           </p>
+          <div className="mt-10 flex gap-6">
+            <Button href="/products" invert>
+              Explore Products
+            </Button>
+            <Button href="/locations">
+              Find a Location
+            </Button>
+          </div>
         </FadeIn>
       </Container>
 
@@ -204,7 +213,7 @@ export default async function Home() {
         client={{ name: 'Phobia', logo: logoPhobiaDark }}
       >
         The team at Studio went above and beyond with our onboarding, even
-        finding a way to access the user’s microphone without triggering one of
+        finding a way to access the user's microphone without triggering one of
         those annoying permission dialogs.
       </Testimonial>
 
