@@ -167,6 +167,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
   let closeRef = useRef<React.ElementRef<'button'>>(null)
   let navRef = useRef<React.ElementRef<'div'>>(null)
   let shouldReduceMotion = useReducedMotion()
+  let pathname = usePathname()
+  let isHomePage = pathname === '/'
 
   useEffect(() => {
     function onClick(event: MouseEvent) {
@@ -187,9 +189,23 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      <header>
+      {/* Hero background image for home page only */}
+      {isHomePage && (
+        <div className="fixed inset-0 -z-30">
+          <div className="absolute inset-0 z-10" style={{ 
+            background: 'linear-gradient(to bottom, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.7) 10%, rgba(3, 7, 18, 0.3) 20%, transparent 30%)'
+          }}></div>
+          <img 
+            src="/images/BotSciFarm_HighRes_37.JPG"
+            alt="Premium cannabis plants" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      
+      <header className="relative z-40">
         <div
-          className="absolute top-6 right-0 left-0 z-40 pt-8"
+          className="absolute top-6 right-0 left-0 pt-8"
           aria-hidden={expanded ? 'true' : undefined}
           // @ts-ignore (https://github.com/facebook/react/issues/17157)
           inert={expanded ? '' : undefined}
@@ -199,6 +215,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             icon={MenuIcon}
             toggleRef={openRef}
             expanded={expanded}
+            invert={isHomePage}
             onToggle={() => {
               setExpanded((expanded) => !expanded)
               window.setTimeout(() =>
@@ -261,30 +278,21 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
       <motion.div
         layout
-        style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-white pt-24"
+        style={isHomePage ? {} : { borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
+        className={`relative flex flex-auto overflow-hidden ${isHomePage ? 'bg-transparent' : 'bg-white'} pt-24`}
       >
         <motion.div
           layout
           className="relative isolate flex w-full flex-col pt-12"
         >
-          {/* Hero background image for home page only */}
-          {usePathname() === '/' && (
-            <div className="absolute inset-x-0 top-0 -z-20 h-[800px] overflow-hidden">
-              <img 
-                src="/images/BotSciFarm_HighRes_37.JPG"
-                alt="Premium cannabis plants" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
-          
           {/* Interactive grid pattern - aligned with hero image */}
-          <GridPattern
-            className="absolute inset-x-0 top-0 -z-15 h-[800px] w-full fill-emerald-900/30 stroke-emerald-800/20 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
-            yOffset={-96}
-            interactive
-          />
+          {isHomePage && (
+            <GridPattern
+              className="absolute inset-x-0 top-0 -z-10 h-screen w-full fill-emerald-900/30 stroke-emerald-800/20 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
+              yOffset={-96}
+              interactive
+            />
+          )}
 
           <main className="w-full flex-auto">{children}</main>
 
