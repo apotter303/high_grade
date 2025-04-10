@@ -62,7 +62,7 @@ function Header({
   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
 
   return (
-    <Container>
+    <Container className="px-0">
       <div className="flex items-center justify-between">
         <Link
           href="/"
@@ -72,12 +72,13 @@ function Header({
           onMouseLeave={() => setLogoHovered(false)}
         >
           <Logo
-            className="h-8 w-auto transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className="w-auto transition-transform duration-300 ease-in-out group-hover:scale-110"
             invert={invert}
             filled={logoHovered}
+            isMenuExpanded={expanded}
           />
         </Link>
-        <div className="flex items-center gap-x-8">
+        <div className="flex items-center gap-x-8 ml-8">
           <Button href="/contact" invert={invert} className="hidden sm:block">
             Contact us
           </Button>
@@ -279,19 +280,21 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       <motion.div
         layout
         style={isHomePage ? {} : { borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className={`relative flex flex-auto overflow-hidden ${isHomePage ? 'bg-transparent' : 'bg-white'} pt-24`}
+        className={`relative flex flex-auto overflow-hidden ${isHomePage ? 'bg-transparent' : 'bg-white'} pt-36`}
       >
         <motion.div
           layout
-          className="relative isolate flex w-full flex-col pt-12"
+          className="relative isolate flex w-full flex-col"
         >
           {/* Interactive grid pattern - aligned with hero image */}
           {isHomePage && (
-            <GridPattern
-              className="absolute inset-x-0 top-0 -z-10 h-screen w-full fill-emerald-900/30 stroke-emerald-800/20 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
-              yOffset={-96}
-              interactive
-            />
+            <div className="absolute inset-x-0 top-0 -mt-[136px] left-0 right-0 -z-10">
+              <GridPattern
+                className="w-full h-screen fill-emerald-900/30 stroke-emerald-800/20 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
+                yOffset={-96}
+                interactive
+              />
+            </div>
           )}
 
           <main className="w-full flex-auto">{children}</main>

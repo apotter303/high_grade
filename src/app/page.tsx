@@ -183,8 +183,8 @@ export default async function Home() {
 
   return (
     <>
-      <Container className="mt-16 sm:mt-24 md:mt-40">
-        <FadeIn className="max-w-3xl">
+      <Container className="mt-16 sm:mt-24 md:mt-40 px-0">
+        <FadeIn className="max-w-3xl pl-6 md:pl-12">
           <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-white sm:text-7xl drop-shadow-xl">
             Georgia's Trusted Source for Premium Cannabis.
           </h1>
