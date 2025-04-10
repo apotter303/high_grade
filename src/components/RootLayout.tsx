@@ -271,18 +271,17 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           {/* Hero background image for home page only */}
           {usePathname() === '/' && (
             <div className="absolute inset-x-0 top-0 -z-20 h-[800px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/90 via-emerald-950/60 to-transparent z-10"></div>
               <img 
                 src="/images/BotSciFarm_HighRes_37.JPG"
                 alt="Premium cannabis plants" 
-                className="w-full h-full object-cover brightness-75"
+                className="w-full h-full object-cover"
               />
             </div>
           )}
           
-          {/* Interactive grid pattern - keep this for the hover effect */}
+          {/* Interactive grid pattern - aligned with hero image */}
           <GridPattern
-            className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-emerald-900/30 stroke-emerald-800/20 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
+            className="absolute inset-x-0 top-0 -z-15 h-[800px] w-full fill-emerald-900/30 stroke-emerald-800/20 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
             yOffset={-96}
             interactive
           />
