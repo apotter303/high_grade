@@ -58,7 +58,7 @@ export function Logo({
     ? '/images/HighGrade_Logo_white.png'
     : '/images/hg.png'
   
-  // Adjust sizes based on which logo is being displayed - increased by 2x
+  // Adjust sizes based on which logo is being displayed - increased by 4x
   const width = isMenuExpanded ? 1040 : 400;
   const height = isMenuExpanded ? 256 : 200;
   
@@ -69,7 +69,7 @@ export function Logo({
         isMenuExpanded ? 'h-48' : 'h-20',
         className
       )} 
-      style={{ marginLeft: '-160px' }}
+      style={{ marginLeft: '-350px' }}
       {...props}
     >
       <Image 
@@ -77,7 +77,10 @@ export function Logo({
         alt="High Grade Logo"
         width={width}
         height={height}
-        className="object-contain h-full"
+        className={clsx(
+          'object-contain h-full',
+          isMenuExpanded ? 'origin-left' : 'transform-gpu scale-[2] origin-left'
+        )}
         priority
       />
     </div>
