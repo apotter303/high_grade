@@ -15,6 +15,8 @@ function Block({
     <motion.path
       transform={`translate(${-32 * y + 96 * x} ${160 * y})`}
       d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z"
+      fill="rgba(6, 78, 59, 0.2)"
+      stroke="rgba(16, 122, 87, 0.2)"
       {...props}
     />
   )
@@ -101,6 +103,8 @@ export function GridPattern({
             key={block[2]}
             x={block[0]}
             y={block[1]}
+            fill="rgba(16, 185, 129, 0.4)"
+            stroke="rgba(16, 185, 129, 0.6)"
             animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 1, times: [0, 0, 1] }}
             onAnimationComplete={() => {
