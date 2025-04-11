@@ -45,13 +45,14 @@ function CaseStudies({
   return (
     <>
       <SectionIntro
-        title="Harnessing technology for a brighter future"
+        title="Tailored Relief for Every Lifestyle "
         className="mt-24 sm:mt-32 lg:mt-40"
+        invert
       >
         <p>
-          We believe technology is the answer to the world's greatest
-          challenges. It's also the cause, so we find ourselves in bit of a
-          catch 22 situation.
+        At High Grade, every product is held to the highest standards—lab tested,
+        precisely formulated, and crafted to ensure exceptional purity and consistent
+        quality in every dose.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -166,9 +167,7 @@ export default async function Home() {
             Georgia's Trusted Source for Premium Cannabis.
           </h1>
           <p className="mt-6 text-xl text-white/90 drop-shadow-lg">
-            At High Grade, we provide exceptional THC and hemp products for both recreational 
-            enjoyment and wellness benefits. Quality, purity, and customer satisfaction 
-            are at the heart of everything we do.
+          At High Grade, we specialize in premium THC and hemp products tailored for therapeutic and wellness use. Our commitment to quality, purity, and patient care ensures every product meets the highest standards. Whether you're seeking relief, balance, or support, we're here to guide you on your wellness journey.
           </p>
           <div className="mt-10 flex gap-6">
             <Button href="/products" invert>
@@ -189,9 +188,8 @@ export default async function Home() {
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Phobia', logo: logoPhobiaDark }}
       >
-        The team at Studio went above and beyond with our onboarding, even
-        finding a way to access the user's microphone without triggering one of
-        those annoying permission dialogs.
+        "The team at High Grade was incredibly professional and well-informed. 
+        From the moment I walked in, they took the time to understand my needs and explain the differences between products in a way that was clear and empowering. Their deep knowledge of medical cannabis gave me real confidence in my choices—and the results have been life-changing. You can tell they truly care about their patients and the quality of everything they offer."
       </Testimonial>
 
       <Services />
