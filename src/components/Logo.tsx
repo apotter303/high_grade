@@ -53,23 +53,20 @@ export function Logo({
   filled?: boolean
   isMenuExpanded?: boolean
 }) {
-  // Use the HG logo on main page, but full logo when menu is expanded
-  const logoSrc = isMenuExpanded
-    ? '/images/HighGrade_Logo_white.png'
-    : '/images/hg.png'
+  // Always use the full logo
+  const logoSrc = '/images/HighGrade_Logo_white.png';
   
-  // Adjust sizes based on which logo is being displayed - increased by 4x
-  const width = isMenuExpanded ? 1040 : 400;
-  const height = isMenuExpanded ? 256 : 200;
+  // Keep consistent sizing regardless of expanded state
+  const width = 180;
+  const height = 45;
   
   return (
     <div 
       className={clsx(
-        'relative flex pl-6 md:pl-12',
-        isMenuExpanded ? 'h-48' : 'h-20',
+        'relative flex items-center justify-start pl-0',
+        'h-12',
         className
       )} 
-      style={{ marginLeft: '-350px' }}
       {...props}
     >
       <Image 
@@ -77,10 +74,7 @@ export function Logo({
         alt="High Grade Logo"
         width={width}
         height={height}
-        className={clsx(
-          'object-contain h-full',
-          isMenuExpanded ? 'origin-left' : 'transform-gpu scale-[2] origin-left'
-        )}
+        className="object-contain h-full"
         priority
       />
     </div>
