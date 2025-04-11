@@ -150,11 +150,11 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/products">Products</NavigationItem>
+        <NavigationItem href="/products">Shop</NavigationItem>
         <NavigationItem href="/about">About Us</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/education">Education</NavigationItem>
+        <NavigationItem href="/education">Get Your Card</NavigationItem>
         <NavigationItem href="/locations">Locations</NavigationItem>
       </NavigationRow>
     </nav>
