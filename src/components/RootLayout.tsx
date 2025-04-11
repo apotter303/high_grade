@@ -63,25 +63,29 @@ function Header({
 
   return (
     <Container className="px-0">
-      <div className="flex items-center justify-between">
-        <Link
-          href="/"
-          aria-label="Home"
-          className="group"
-          onMouseEnter={() => setLogoHovered(true)}
-          onMouseLeave={() => setLogoHovered(false)}
-        >
-          <Logo
-            className="w-auto transition-transform duration-300 ease-in-out group-hover:scale-110"
-            invert={invert}
-            filled={logoHovered}
-            isMenuExpanded={expanded}
-          />
-        </Link>
-        <div className="flex items-center gap-x-8 ml-8">
-          <Button href="/contact" invert={invert} className="hidden sm:block">
-            Contact us
-          </Button>
+      <div className="flex items-center justify-between w-full">
+        <div className="flex-grow-0">
+          <Link
+            href="/"
+            aria-label="Home"
+            className="group"
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
+          >
+            <Logo
+              className="w-auto transition-transform duration-300 ease-in-out group-hover:scale-110"
+              invert={invert}
+              filled={logoHovered}
+              isMenuExpanded={expanded}
+            />
+          </Link>
+        </div>
+        <div className="flex items-center pr-4">
+          {!expanded && (
+            <Button href="/contact" invert={invert} className="hidden sm:block mr-4">
+              Get Your Card
+            </Button>
+          )}
           <button
             ref={toggleRef}
             type="button"
@@ -89,15 +93,15 @@ function Header({
             aria-expanded={expanded ? 'true' : 'false'}
             aria-controls={panelId}
             className={clsx(
-              'group -m-2.5 rounded-full p-2.5 transition hover:bg-neutral-950/10',
-              invert ? 'hover:bg-white/10' : '',
+              'group rounded-full p-2 transition z-50 relative',
+              invert ? 'hover:bg-white/20' : 'hover:bg-neutral-950/10',
             )}
             aria-label="Toggle navigation"
           >
             {Icon && (
               <Icon
                 className={clsx(
-                  'h-6 w-6',
+                  'h-7 w-7',
                   invert
                     ? 'fill-white group-hover:fill-neutral-200'
                     : 'fill-neutral-950 group-hover:fill-neutral-700',
@@ -113,8 +117,8 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="even:mt-px sm:bg-neutral-950">
-      <Container>
+    <div className="even:mt-px sm:bg-neutral-950 w-full">
+      <Container className="px-0">
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
     </div>
@@ -133,7 +137,7 @@ function NavigationItem({
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-neutral-950 px-6 py-12 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16 hover:bg-neutral-900 transition-colors duration-200"
+      className="group relative isolate bg-neutral-950 px-4 sm:px-6 py-6 sm:py-8 even:mt-px sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16 hover:bg-neutral-900 transition-colors duration-200"
     >
       <div className="flex items-center">
         {Icon && (
@@ -148,7 +152,7 @@ function NavigationItem({
 
 function Navigation() {
   return (
-    <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
+    <nav className="mt-px font-display text-3xl sm:text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
         <NavigationItem href="/products">Shop</NavigationItem>
         <NavigationItem href="/about">About Us</NavigationItem>
@@ -206,7 +210,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       
       <header className="relative z-40">
         <div
-          className="absolute top-6 right-0 left-0 pt-8"
+          className="absolute top-6 right-0 left-0 pt-6 w-full"
           aria-hidden={expanded ? 'true' : undefined}
           // @ts-ignore (https://github.com/facebook/react/issues/17157)
           inert={expanded ? '' : undefined}
@@ -230,13 +234,13 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           layout
           id={panelId}
           style={{ height: expanded ? 'auto' : '0.5rem' }}
-          className="relative z-50 overflow-hidden bg-neutral-950 pt-2"
+          className="relative z-50 overflow-hidden bg-neutral-950 pt-2 w-full"
           aria-hidden={expanded ? undefined : 'true'}
           // @ts-ignore (https://github.com/facebook/react/issues/17157)
           inert={expanded ? undefined : ''}
         >
-          <motion.div layout className="bg-neutral-800">
-            <div ref={navRef} className="bg-neutral-950 pt-16 pb-16">
+          <motion.div layout className="bg-neutral-800 w-full">
+            <div ref={navRef} className="bg-neutral-950 pt-6 pb-6 w-full">
               <Header
                 invert
                 panelId={panelId}
@@ -252,8 +256,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
               />
             </div>
             <Navigation />
-            <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
-              <Container>
+            <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800 w-full">
+              <Container className="px-4">
                 <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
@@ -261,7 +265,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                     </h2>
                     <Offices
                       invert
-                      className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
+                      className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 text-white"
                     />
                   </div>
                   <div className="sm:border-l sm:border-transparent sm:pl-16">

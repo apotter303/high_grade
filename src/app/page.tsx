@@ -9,7 +9,6 @@ import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { Button } from '@/components/Button'
@@ -186,10 +185,9 @@ export default async function Home() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Phobia', logo: logoPhobiaDark }}
+        client={{ name: 'Russell Stockton' }}
       >
-        "The team at High Grade was incredibly professional and well-informed. 
-        From the moment I walked in, they took the time to understand my needs and explain the differences between products in a way that was clear and empowering. Their deep knowledge of medical cannabis gave me real confidence in my choices—and the results have been life-changing. You can tell they truly care about their patients and the quality of everything they offer."
+        The team at High Grade was incredibly professional and knowledgeable. They made me feel confident in my choices and clearly care about both their patients and the quality of their products.
       </Testimonial>
 
       <Services />
